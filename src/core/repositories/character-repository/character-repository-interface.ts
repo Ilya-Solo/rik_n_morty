@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export interface CharacterRepositoryInterface {
-  getCharacters: (page: number) => Promise<CharacterPage>;
-  getCharacterById: (id: number) => Promise<Character>;
+  getCharacters: (page: string) => Promise<CharacterPage>;
+  getCharacterById: (id: string) => Promise<Character>;
 }
 
 const PaginationInfoSchema = z.object({

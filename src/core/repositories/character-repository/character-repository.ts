@@ -18,7 +18,7 @@ export class CharacterRepository implements CharacterRepositoryInterface {
     });
   }
 
-  async getCharacters(page: number = 1): Promise<CharacterPage> {
+  async getCharacters(page: string = "1"): Promise<CharacterPage> {
     try {
       const response = await this.http.get(
         `${API_ENDPOINTS.CHARACTERS.LIST}?page=${page}`
@@ -29,7 +29,7 @@ export class CharacterRepository implements CharacterRepositoryInterface {
     }
   }
 
-  async getCharacterById(id: number): Promise<Character> {
+  async getCharacterById(id: string): Promise<Character> {
     try {
       const response = await this.http.get(
         `${API_ENDPOINTS.CHARACTERS.DETAILS(id)}`

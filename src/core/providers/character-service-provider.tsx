@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useContext, ReactNode, useRef } from "react";
 import CharacterService from "@/core/services/character-service/character-service";
 

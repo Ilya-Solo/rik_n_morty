@@ -3,14 +3,14 @@ export const API_BASE_URL = "https://rickandmortyapi.com/api";
 export const API_ENDPOINTS = {
   CHARACTERS: {
     LIST: "/character",
-    DETAILS: (id: number) => `/character/${id}`,
+    DETAILS: (id: string) => `/character/${id}`,
   },
   EPISODES: {
     LIST: "/episode",
-    DETAILS: (id: number) => `/episode/${id}`,
+    DETAILS: (id: string) => `/episode/${id}`,
   },
   LOCATIONS: {
     LIST: "/location",
-    DETAILS: (id: number) => `/location/${id}`,
+    DETAILS: (id: string) => `/location/${id}`,
   },
 };

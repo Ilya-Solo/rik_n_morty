@@ -13,11 +13,11 @@ export default class CharacterService implements CharacterServiceInterface {
     this.characterRepository = new CharacterRepository();
   }
 
-  async getCharacterById(id: number): Promise<Character> {
+  async getCharacterById(id: string): Promise<Character> {
     return this.characterRepository.getCharacterById(id);
   }
 
-  async getCharacters(page: number = 1): Promise<CharacterPage> {
+  async getCharacters(page: string = "1"): Promise<CharacterPage> {
     return this.characterRepository.getCharacters(page);
   }
 }

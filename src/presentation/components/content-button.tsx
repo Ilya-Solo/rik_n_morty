@@ -2,16 +2,22 @@
 
 import React from "react";
 import { useCharacterService } from "@/core/providers/character-service-provider";
+import { useTranslation } from "react-i18next";
 
-const Button: React.FC = () => {
+interface ButtonProps {
+  id: string;
+}
+
+const Button: React.FC<ButtonProps> = async ({ id }) => {
   const characterService = useCharacterService();
+  const { t } = useTranslation("common");
 
-  const onClick = async () => {
-    const data = await characterService.getCharacterById(1);
-    console.log(data);
+  const character = await characterService.getCharacterById(id);
+  const onClick = () => {
+    console.log(character);
   };
 
-  return <button onClick={onClick}>Press on me</button>;
+  return <button onClick={onClick}>{t("welcome")}</button>;
 };
 
 export default Button;
