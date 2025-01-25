@@ -1,12 +1,12 @@
 import axios, { AxiosInstance } from "axios";
 import { API_BASE_URL, API_ENDPOINTS } from "@/infrastructure/api/apiEndpoint";
 import {
-  CharacterRepositoryInterface,
-  CharacterPage,
-  Character,
-} from "./character-repository-interface";
+  EpisodeRepositoryInterface,
+  EpisodeList,
+  Episode,
+} from "./episode-repository-interface";
 
-export class CharacterRepository implements CharacterRepositoryInterface {
+export class EpisodeRepository implements EpisodeRepositoryInterface {
   private http: AxiosInstance;
 
   constructor(baseURL: string = API_BASE_URL) {
@@ -18,10 +18,10 @@ export class CharacterRepository implements CharacterRepositoryInterface {
     });
   }
 
-  async getCharacters(page: string = "1"): Promise<CharacterPage> {
+  async getEpisodesList(page: string = "1"): Promise<EpisodeList> {
     try {
       const response = await this.http.get(
-        `${API_ENDPOINTS.CHARACTERS.LIST}?page=${page}`
+        `${API_ENDPOINTS.EPISODES.LIST}?page=${page}`
       );
       return response.data;
     } catch (error) {
@@ -29,10 +29,10 @@ export class CharacterRepository implements CharacterRepositoryInterface {
     }
   }
 
-  async getCharacterById(id: string): Promise<Character> {
+  async getEpisodeById(id: string): Promise<Episode> {
     try {
       const response = await this.http.get(
-        `${API_ENDPOINTS.CHARACTERS.DETAILS(id)}`
+        `${API_ENDPOINTS.EPISODES.DETAILS(id)}`
       );
       return response.data;
     } catch (error) {
@@ -40,7 +40,7 @@ export class CharacterRepository implements CharacterRepositoryInterface {
     }
   }
 
-  getCharacterId(url: string): string {
+  getEpisodeId(url: string): string {
     const parts = url.split("/");
     const id = parts.at(-1);
     if (!id) {

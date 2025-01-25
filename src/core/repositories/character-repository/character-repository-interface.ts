@@ -3,6 +3,7 @@ import { z } from "zod";
 export interface CharacterRepositoryInterface {
   getCharacters: (page: string) => Promise<CharacterPage>;
   getCharacterById: (id: string) => Promise<Character>;
+  getCharacterId: (url: string) => string;
 }
 
 const PaginationInfoSchema = z.object({

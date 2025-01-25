@@ -20,4 +20,8 @@ export default class CharacterService implements CharacterServiceInterface {
   async getCharacters(page: string = "1"): Promise<CharacterPage> {
     return this.characterRepository.getCharacters(page);
   }
+
+  getCharacterId(url: string): string {
+    return this.characterRepository.getCharacterId(url);
+  }
 }

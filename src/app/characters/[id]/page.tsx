@@ -8,9 +8,7 @@ export default async function ProductPage({
   params: { id: string };
 }) {
   const characterService = new CharacterService();
-
   const resolvedParams = await params;
-
   const { id } = resolvedParams;
 
   const character = await characterService.getCharacterById(id);
