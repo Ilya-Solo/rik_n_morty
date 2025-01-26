@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const Header = () => {
@@ -8,7 +9,12 @@ const Header = () => {
         <div className="header-container">
           <div className="logo-area">
             <Link href="/" className="logo">
-              MyApp
+              <Image
+                src="/images/logo.svg"
+                alt="My Logo"
+                width={120}
+                height={40}
+              />
             </Link>
           </div>
           <nav className="main-nav">
